@@ -1,0 +1,12 @@
+---
+title: "cookie_test"
+author: "vicky_banks"
+date: \today
+output: pdf_document
+bibliography: references.bib
+vignette: >
+  %\VignetteIndexEntry{ cookie_test }
+  %\VignetteEngine{knitr::rmarkdown}
+  %\usepackage[utf8]{inputenc} 
+---
+
