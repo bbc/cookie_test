@@ -29,6 +29,7 @@ print(paste0("start date is ", startDate))
 print(paste0("end date is ", endDate))
 
 sql_query<- paste0("
+                  INSERT INTO dataforce_sandbox.vb_cookie_test
                    SELECT dt, visit_id, placement, container, attribute, result 
                    FROM s3_audience.publisher 
                    WHERE destination = 'PS_IPLAYER' AND dt = ", 
@@ -36,7 +37,7 @@ sql_query<- paste0("
                    " LIMIT 1;"
                    )
 conn <- get_redshift_connection_ccog()
-dbGetQuery(conn, sql_query)
+dbSendUpdate(conn, sql_query)
 
 
 
