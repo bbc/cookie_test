@@ -19,3 +19,4 @@ Encoding: UTF-8
 LazyData: true
 URL: https://github.com/VickyBanks/cookie_test
 BugReports: https://github.com/VickyBanks/cookie_test/issues
+RoxygenNote: 6.1.1
