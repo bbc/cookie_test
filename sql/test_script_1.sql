@@ -14,3 +14,5 @@ INSERT INTO dataforce_sandbox.vb_cookie_test
 SELECT dt, visit_id, placement, container, attribute, result
 FROM s3_audience.publisher
 WHERE destination = 'PS_IPLAYER' AND dt =20210410 LIMIT 1;
+
+GRANT ALL ON dataforce_sandbox.vb_cookie_test TO vicky_banks ;
