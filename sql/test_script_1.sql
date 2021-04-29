@@ -3,7 +3,8 @@
 CREATE TABLE IF NOT EXISTS dataforce_sandbox.vb_cookie_test
 (
     dt   varchar,
-    visit_id int--,
+    visit_id int,
+  run_date varchar
     --placement varchar(2000),
    -- container varchar(2000),
     --attribute varchar(2000),
@@ -14,12 +15,12 @@ CREATE TABLE IF NOT EXISTS dataforce_sandbox.vb_cookie_test
 
 
 INSERT INTO dataforce_sandbox.vb_cookie_test
-SELECT dt, visit_id
+SELECT dt, visit_id, 'run_date'::varchar as date_name
 FROM s3_audience.publisher
 WHERE destination = 'PS_IPLAYER' AND dt = <params.run_date> LIMIT 1;
 
 INSERT INTO dataforce_sandbox.vb_cookie_test
-SELECT dt,visit_id
+SELECT dt,visit_id, 'previous_run_date'::varchar as date_name
 FROM s3_audience.publisher
 WHERE destination = 'PS_IPLAYER' AND dt = <params.previous_run_date>  LIMIT 1;
 
