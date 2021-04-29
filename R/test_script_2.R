@@ -20,6 +20,14 @@ library(tidyverse)
 
 ######################################################
 
+### bring in the run date ###
+
+args = commandArgs(trailingOnly=TRUE)
+run_date <- args[1]
+print(run_date)
+
+print(paste0('week beginning  = ', floor_date(run_date %m-% weeks(1)+1, unit = 'week')))
+
 ##### ##### Code to run ##### ##### 
 startDate <- floor_date(Sys.Date() %m-% weeks(1), unit = 'week') %m+% days(1)
 endDate <- ceiling_date(Sys.Date() %m-% weeks(1), 'week')
@@ -30,7 +38,7 @@ print(paste0("end date is ", endDate))
 
 sql_query<- paste0("
                   INSERT INTO dataforce_sandbox.vb_cookie_test
-                   SELECT dt, visit_id, placement, container, attribute, result 
+                   SELECT dt, visit_id, 'from_R'::varchar as date_name
                    FROM s3_audience.publisher 
                    WHERE destination = 'PS_IPLAYER' AND dt = ", 
                    str_remove_all(startDate, '-'),
