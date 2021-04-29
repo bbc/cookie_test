@@ -16,11 +16,11 @@ CREATE TABLE IF NOT EXISTS dataforce_sandbox.vb_cookie_test
 INSERT INTO dataforce_sandbox.vb_cookie_test
 SELECT dt, visit_id
 FROM s3_audience.publisher
-WHERE destination = 'PS_IPLAYER' AND dt = run_date LIMIT 1;
+WHERE destination = 'PS_IPLAYER' AND dt = run_date::varchar LIMIT 1;
 
 INSERT INTO dataforce_sandbox.vb_cookie_test
 SELECT dt,visit_id
 FROM s3_audience.publisher
-WHERE destination = 'PS_IPLAYER' AND dt = previous_run_date LIMIT 1;
+WHERE destination = 'PS_IPLAYER' AND dt = previous_run_date::varchar  LIMIT 1;
 
 GRANT ALL ON dataforce_sandbox.vb_cookie_test TO vicky_banks ;
