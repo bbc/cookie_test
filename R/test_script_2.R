@@ -23,15 +23,33 @@ library(tidyverse)
 ### bring in the run date ###
 
 args = commandArgs(trailingOnly=TRUE)
-run_date_1 <- args[1]
-run_date_2 <- args[2]
-print(run_date_1)
+run_date_input_1 <- args[1]
+run_date_input_2 <- args[2]
+print(run_date_input_1)
+print(run_date_input_2)
+print(class(run_date_input_1))
+print(class(run_date_input_2))
+
+## run date format 20210427
+run_date<-as.Date(run_date_input_1, format='%Y%m%d')
+print(run_date)
+print(class(run_date))
+
+week_begining_monday<-floor_date(run_date, unit = 'week')+1
+print(week_begining_monday)
+last_monday<- floor_date(run_date %m-% weeks(1), unit = 'week')+1
+print(last_monday)
+
+## run date format 2021-04-27
+run_date_2<-as.Date(run_date_input_2, format='%Y-%m-%d')
 print(run_date_2)
-print(class(run_date_1))
 print(class(run_date_2))
 
-print(paste0('run_date_1 week beginning  = ', floor_date(run_date_1 %m-% weeks(1)+days(1), unit = 'week')))
-print(paste0('run_date_2 week beginning  = ', floor_date(run_date_2 %m-% weeks(1)+days(1), unit = 'week')))
+week_begining_monday<-floor_date(run_date_2, unit = 'week')+1
+print(week_begining_monday)
+last_monday<- floor_date(run_date_2 %m-% weeks(1), unit = 'week')+1
+print(last_monday)
+
 
 ##### ##### Code to run ##### ##### 
 startDate <- floor_date(Sys.Date() %m-% weeks(1), unit = 'week') %m+% days(1)
