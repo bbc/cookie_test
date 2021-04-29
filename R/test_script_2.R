@@ -20,6 +20,14 @@ library(tidyverse)
 
 ######################################################
 
+### bring in the run date ###
+
+args = commandArgs(trailingOnly=TRUE)
+run_date <- args[1]
+print(run_date)
+
+print(paste0('week beginning  = ', floor_date(run_date %m-% weeks(1)+1, unit = 'week')))
+
 ##### ##### Code to run ##### ##### 
 startDate <- floor_date(Sys.Date() %m-% weeks(1), unit = 'week') %m+% days(1)
 endDate <- ceiling_date(Sys.Date() %m-% weeks(1), 'week')
