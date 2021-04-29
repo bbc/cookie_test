@@ -30,7 +30,7 @@ print(paste0("end date is ", endDate))
 
 sql_query<- paste0("
                   INSERT INTO dataforce_sandbox.vb_cookie_test
-                   SELECT dt, visit_id, placement, container, attribute, result 
+                   SELECT dt, visit_id, 'from_R'::varchar as date_name
                    FROM s3_audience.publisher 
                    WHERE destination = 'PS_IPLAYER' AND dt = ", 
                    str_remove_all(startDate, '-'),
