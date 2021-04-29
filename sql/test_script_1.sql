@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS dataforce_sandbox.vb_cookie_test
 (
     dt   varchar,
     visit_id int,
-  run_date varchar
+  date_name varchar
     --placement varchar(2000),
    -- container varchar(2000),
     --attribute varchar(2000),
