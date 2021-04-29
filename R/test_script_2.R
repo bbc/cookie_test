@@ -23,10 +23,15 @@ library(tidyverse)
 ### bring in the run date ###
 
 args = commandArgs(trailingOnly=TRUE)
-run_date <- args[1]
-print(run_date)
+run_date_1 <- args[1]
+run_date_2 <- args[2]
+print(run_date_1)
+print(run_date_2)
+print(class(run_date_1))
+print(class(run_date_2))
 
-print(paste0('week beginning  = ', floor_date(run_date %m-% weeks(1)+1, unit = 'week')))
+print(paste0('run_date_1 week beginning  = ', floor_date(run_date_1 %m-% weeks(1)+days(1), unit = 'week')))
+print(paste0('run_date_2 week beginning  = ', floor_date(run_date_2 %m-% weeks(1)+days(1), unit = 'week')))
 
 ##### ##### Code to run ##### ##### 
 startDate <- floor_date(Sys.Date() %m-% weeks(1), unit = 'week') %m+% days(1)
